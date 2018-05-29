@@ -17,12 +17,12 @@ import javax.swing.*;
 import java.awt.event.*;
 
 public class ChessMain extends JFrame{
-   
+
+//체스판 띄우기
    public ChessMain() throws IOException {
       JFrame frame = new JFrame("1vs1");
        frame.setSize(810,810);
-       frame.setDefaultCloseOperation(
-         JFrame.EXIT_ON_CLOSE);
+       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
        frame.setLocationRelativeTo(null);
        JPanel[][] chessBoardSquares = new JPanel[8][8];
        
@@ -78,8 +78,10 @@ public class ChessMain extends JFrame{
        //jbBishop.addActionListener(listener);
        
    }
+
+//main method
    public static void main(String[] argv) throws IOException {
-	  
+
       JFrame menu = new JFrame("menu");
 	  menu.setDefaultCloseOperation(
 			  JFrame.EXIT_ON_CLOSE);
@@ -93,33 +95,47 @@ public class ChessMain extends JFrame{
       JButton Exit = new JButton("Exit");
 	  Exit.setSize(200,200);
 	  Exit.setLocation(400,200);
+//exit listener
 	  Exit.addActionListener(new ActionListener(){
-		public void actionPerformed(ActionEvent arg0) {
-			menu.dispose();
-		}
+		  public void actionPerformed(ActionEvent arg0) {
+			  menu.dispose();
+		  }
 	  }
-	  );
+	  );	  
 	  Exit.setVisible(true);
+//1 vs 1 listener	  
 	  OvO.addActionListener(new ActionListener() {
 		 public void actionPerformed(ActionEvent arg0) {
-
 			  try {
-				menu.dispose();
-				new ChessMain();
-				
+				  if(arg0.getActionCommand().equals("1vs1")) {
+					  menu.dispose();
+					  new ChessMain();
+				  }
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-				
 			}
-			  
 		 }
 	  }
 	  );
 	  menu.add(OvO);
 	  menu.add(Exit);
+//int board에 초기 체스판 값 대입
+	  new SetBoard();
+	  /* setBoard 클래스로 값들이 잘 저장 되었는지 확인하는 문장
+	   * 확인하고 싶으면 주석 없에서 확인해봐도 됨
+	   Board chess= new Board();
+	  for(int i=0;i<8;i++) {
+		  for(int j=0;j<8;j++) {
+			  System.out.print(Board.board[i][j]);
+		  }
+		  System.out.println("");
+	  }
+	  */
    }
+   
 }
+	
 class ListenerClass implements ActionListener{
 public void actionPerformed(ActionEvent e) {
 	System.out.println("The Pawn is clicked");
