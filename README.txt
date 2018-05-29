@@ -11,3 +11,9 @@
     오른쪽에 연필모양 클릭
     수정
     
+3. 현재 넣어야 되는 클래스
+    - ChessPieceSprite
+    - ImagePanel
+    - ChessMain
+    - SetBoard
+    - Board
