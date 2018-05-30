@@ -17,3 +17,4 @@
     - ChessMain
     - SetBoard
     - Board
+    - SetBoardGraphic
