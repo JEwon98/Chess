@@ -28,12 +28,12 @@ public class Queen {
 	         System.out.printf("%d %d ",p,q);
 	     }
 	     for(int i = 0;i < x;i++) 
-	    	 System.out.printf("%d %d ",p,q);
+	    	 System.out.printf("%d %d ",i,y);
 	     for(int i = x+1;i<8;i++)
-	    	 System.out.printf("%d %d ",p,q);
+	    	 System.out.printf("%d %d ",i,y);
 	     for(int j = 0;j < y;j++)
-	    	 System.out.printf("%d %d ",p,q);
+	    	 System.out.printf("%d %d ",x,j);
 	     for(int j = y+1;j <8;j++)
-	    	 System.out.printf("%d %d ",p,q);
+	    	 System.out.printf("%d %d ",x,j);
 	}
 }
