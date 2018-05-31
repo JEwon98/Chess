@@ -16,7 +16,9 @@ import java.awt.event.*;
 public class ChessMain extends JFrame{
 	//체스판 띄우기
 	public ChessMain() throws IOException {
+		new SetBoard();
 		new SetBoardGraphic(); // 초기화면 셋팅
+		new Move();
 	}
 
 //main method
