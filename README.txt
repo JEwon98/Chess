@@ -1,5 +1,7 @@
 # Chess
 
+☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ 필독!!!!!!!!!! ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆
+
 1. 자신이 만든 자바 클래스 추가하는 방법
     createFile을 클릭한뒤
     Chess / ________ 공백란에 "파일이름".java 형식으로 지정한뒤
@@ -18,3 +20,6 @@
     - SetBoard
     - Board
     - SetBoardGraphic
+    - SetBoardGraphic2
+    - SetBoard2
+    - Move
