@@ -14,9 +14,9 @@ import javax.swing.*;
 import java.awt.event.*;
 
 public class ChessMain extends JFrame{
-	//Ã¼½ºÆÇ ¶ç¿ì±â
+	//ì²´ìŠ¤íŒ ë„ìš°ê¸°
 	public ChessMain() throws IOException {
-		new SetBoardGraphic(); // ÃÊ±âÈ­¸é ¼ÂÆÃ
+		new SetBoardGraphic(); // ì´ˆê¸°í™”ë©´ ì…‹íŒ…
 	}
 
 //main method
@@ -26,21 +26,38 @@ public static void main(String[] argv) throws IOException {
 	menu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	menu.setSize(700,600);
 	menu.setLocationRelativeTo(null);
+	menu.setLayout(new GridLayout(2,1,0,0));
+	
+	// ë©”ë‰´íŒ ê¾¸ë¯¸ê¸°
+	
+	ImageIcon photo = new ImageIcon("board.png");
+	JLabel image = new JLabel(photo); 
+	image.setVisible(true);
+	menu.add(image);
+	
+	
 	
 	JPanel Menu = new JPanel(); 
-	Menu.setLayout(new FlowLayout(FlowLayout.LEADING, 20, 20));
-    Menu.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 2));
+	Menu.setLayout(null);
     menu.add(Menu);
     Menu.setVisible(true);
-	JButton OvO = new JButton("1vs1");//ÀÏ´ëÀÏ ¹öÆ°
+	JButton OvO = new JButton("1vs1");//ì¼ëŒ€ì¼ ë²„íŠ¼
+	OvO.setSize(150,100);
+	OvO.setLocation(50,100);
+	
 	OvO.setVisible(true);
-	JButton tvt = new JButton("2vs2"); //ÀÌ´ëÀÌ ¹öÆ°
-	tvt.setVisible(true);
+	JButton TvT = new JButton("2vs2"); //ì´ëŒ€ì´ ë²„íŠ¼
+	TvT.setSize(150,100);
+	TvT.setLocation(250,100);
+	TvT.setVisible(true);
 	JButton Exit = new JButton("Exit");
+	Exit.setSize(150,100);
+	Exit.setLocation(450,100);
 //exit listener
 	Exit.addActionListener(new ActionListener()
 	{
 		public void actionPerformed(ActionEvent arg0) {
+			
 			menu.dispose();
 		}
 	}
@@ -58,7 +75,7 @@ public static void main(String[] argv) throws IOException {
 		
 	}
 			);
-	tvt.addActionListener(new ActionListener() {
+	TvT.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent arg0 ) {
  /*try {
 			menu.dispose();
@@ -73,10 +90,11 @@ public static void main(String[] argv) throws IOException {
 	}
 	);
 	Menu.add(OvO);
-	Menu.add(tvt);
+	Menu.add(TvT);
 	Menu.add(Exit);
 	menu.setVisible(true);
-	new SetBoard();
+	//new SetBoard();
+
 	}
 
 }
