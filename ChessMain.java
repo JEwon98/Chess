@@ -21,23 +21,22 @@ public class ChessMain extends JFrame{
 
 //main method
 public static void main(String[] argv) throws IOException {
-
+ 
 	JFrame menu = new JFrame("menu");
 	menu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	menu.setSize(700,600);
 	menu.setLocationRelativeTo(null);
-	menu.setVisible(true);
-	JButton OvO = new JButton("1vs1"); //일대일 버튼
-	OvO.setSize(200,100);
-	OvO.setLocation(50,200);
+	
+	JPanel Menu = new JPanel(); 
+	Menu.setLayout(new FlowLayout(FlowLayout.LEADING, 20, 20));
+    Menu.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 2));
+    menu.add(Menu);
+    Menu.setVisible(true);
+	JButton OvO = new JButton("1vs1");//일대일 버튼
 	OvO.setVisible(true);
 	JButton tvt = new JButton("2vs2"); //이대이 버튼
-	tvt.setSize(200,100);
-	tvt.setLocation(250,200);
 	tvt.setVisible(true);
 	JButton Exit = new JButton("Exit");
-	Exit.setSize(200,100);
-	Exit.setLocation(450,200);
 //exit listener
 	Exit.addActionListener(new ActionListener()
 	{
@@ -46,56 +45,41 @@ public static void main(String[] argv) throws IOException {
 		}
 	}
 			);	  
-	Exit.setVisible(true);
-	//1 vs 1 listener	  
+	Exit.setVisible(true);  
 	OvO.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent arg0) {
 			try {
 				menu.dispose();
 				new ChessMain();
 			} catch (IOException e) {
-// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
+		
 	}
 			);
 	tvt.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent arg0 ) {
-			/*try {
-				menu.dispose();
-				new ChessMain();
-			} catch (IOException e) {
-				e.printStackTrace();
-			} */
+ /*try {
 			menu.dispose();
-			new SetBoardGraphic2();
+			new ChessMain();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} */
+		menu.dispose();
+		new SetBoardGraphic2();
+	
 		}
 	}
 	);
-	menu.add(OvO);
-	menu.add(tvt);
-	menu.add(Exit);
-//int board에 초기 체스판 값 대입
+	Menu.add(OvO);
+	Menu.add(tvt);
+	Menu.add(Exit);
+	menu.setVisible(true);
 	new SetBoard();
-	  /* setBoard 클래스로 값들이 잘 저장 되었는지 확인하는 문장
-	   * 확인하고 싶으면 주석 없에서 확인해봐도 됨
-	   Board chess= new Board();
-	  for(int i=0;i<8;i++) {
-		  for(int j=0;j<8;j++) {
-			  System.out.print(Board.board[i][j]);
-		  }
-		  System.out.println("");
-	  }
-	  */
 	}
 
 }
 	
-class ListenerClass implements ActionListener{
-public void actionPerformed(ActionEvent e) {
-	System.out.println("The Pawn is clicked");
-	// Piece.move;
-	// Pawn;
-}
-}
+
+
